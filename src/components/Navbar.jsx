@@ -7,7 +7,7 @@ export default function Navbar() {
 					src='./src/assets/icons/rick-icon.png'
 					alt=''
 				/>
-				<h1>MEMORICK</h1>
+				<h1 className='name'>MEMORICK</h1>
 			</div>
 			<h1 className='scores'>Score: 0 | Highest Score: 0</h1>
 		</nav>
