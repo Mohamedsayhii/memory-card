@@ -3,7 +3,7 @@ export default function Footer() {
 		<footer>
 			<p>Realized by MohamedSayhii</p>
 			<a href='https://github.com/mohamedsayhii'>
-				<img src='public/github-icon.svg' alt='' />
+				<img src='/github-icon.svg' alt='' />
 			</a>
 		</footer>
 	);
