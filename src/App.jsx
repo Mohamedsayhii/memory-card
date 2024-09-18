@@ -29,19 +29,25 @@ function App() {
 	const [score, setScore] = useState(0);
 	const [highestScore, setHighestScore] = useState(0);
 	const [cards, setCards] = useState([]);
-	console.log(cards);
 
 	useEffect(() => {
+		let ignore = false;
 		const data = apiData(
 			getRandomCharacters('https://rickandmortyapi.com/api/character/')
 		);
-		data.then((response) => setCards(response));
+		data.then((response) => {
+			if (!ignore) setCards(response);
+		});
+
+		return () => {
+			ignore = true;
+		};
 	}, []);
 
 	return (
 		<>
-			<Navbar />
-			<Main />
+			<Navbar score={score} highestScore={highestScore} />
+			<Main cards={cards} />
 			<Footer />
 		</>
 	);

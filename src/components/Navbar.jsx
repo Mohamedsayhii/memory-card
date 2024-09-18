@@ -1,4 +1,4 @@
-export default function Navbar() {
+export default function Navbar({ score, highestScore }) {
 	return (
 		<nav>
 			<div className='logo-name'>
@@ -9,7 +9,9 @@ export default function Navbar() {
 				/>
 				<h1 className='name'>MEMORICK</h1>
 			</div>
-			<h1 className='scores'>Score: 0 | Highest Score: 0</h1>
+			<h1 className='scores'>
+				Score: {score} | Highest Score: {highestScore}
+			</h1>
 		</nav>
 	);
 }
