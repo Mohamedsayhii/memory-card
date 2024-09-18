@@ -29,10 +29,27 @@ function App() {
 	const [score, setScore] = useState(0);
 	const [highestScore, setHighestScore] = useState(0);
 	const [cards, setCards] = useState([]);
+	const [selectedCardsIds, setSelectedCardsIds] = useState([]);
+
+	function incrementScore(cardId) {
+		if (!selectedCardsIds.includes(cardId)) {
+			setSelectedCardsIds((prevCardsIds) => [...prevCardsIds, cardId]);
+			setScore((prevScore) => prevScore + 1);
+		} else {
+			setSelectedCardsIds([]);
+			setScore(0);
+		}
+	}
+
+	function highScore() {
+		if (score >= highestScore) {
+			setHighestScore(score);
+		}
+	}
 
 	useEffect(() => {
 		let ignore = false;
-		
+
 		const data = apiData(
 			getRandomCharacters('https://rickandmortyapi.com/api/character/')
 		);
@@ -40,15 +57,17 @@ function App() {
 			if (!ignore) setCards(response);
 		});
 
+		highScore();
+
 		return () => {
 			ignore = true;
 		};
-	}, []);
+	}, [score]);
 
 	return (
 		<>
 			<Navbar score={score} highestScore={highestScore} />
-			<Main cards={cards} />
+			<Main cards={cards} incrementScore={incrementScore} />
 			<Footer />
 		</>
 	);

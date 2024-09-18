@@ -36,7 +36,6 @@ main {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr;
 	height: 90vh;
-	width: 100vw;
 	background-image: url(src/assets/images/background.png);
 	background-size: cover;
 	background-position: left bottom;
@@ -106,6 +105,9 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
+	nav {
+		font-size: 0.6rem;
+	}
 	main {
 		height: auto;
 		grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
