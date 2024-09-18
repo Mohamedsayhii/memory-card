@@ -16,7 +16,7 @@ const apiData = async (url) => {
 
 const getRandomCharacters = (url) => {
 	const randomCharactersIds = Array.from({ length: 10 }, () =>
-		Math.floor(Math.random() * 826)
+		Math.floor(Math.random() * 826) + 1
 	);
 	for (let i = 0; i < randomCharactersIds.length; i++) {
 		url += `${randomCharactersIds[i]},`;
