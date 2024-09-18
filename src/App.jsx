@@ -32,6 +32,7 @@ function App() {
 
 	useEffect(() => {
 		let ignore = false;
+		
 		const data = apiData(
 			getRandomCharacters('https://rickandmortyapi.com/api/character/')
 		);
