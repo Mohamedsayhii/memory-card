@@ -61,6 +61,10 @@ main {
 	width: 100%;
 }
 
+.card:hover {
+	transform: scale(1.2);
+}
+
 footer {
 	position: absolute;
 	left: 0;
@@ -85,6 +89,10 @@ footer {
 @media screen and (max-width: 1250px) {
 	.card {
 		width: 15rem;
+	}
+
+	.card:hover {
+		transform: scale(1.1);
 	}
 }
 
