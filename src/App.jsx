@@ -15,13 +15,15 @@ const apiData = async (url) => {
 };
 
 const getRandomCharacters = (url) => {
-	const randomCharactersIds = Array.from({ length: 10 }, () =>
-		Math.floor(Math.random() * 826) + 1
-	);
+	const uniqueRandomIds = new Set();
+	while (uniqueRandomIds.size < 10) {
+		uniqueRandomIds.add(Math.floor(Math.random() * 826) + 1);
+	}
+
+	const randomCharactersIds = Array.from(uniqueRandomIds); 
 	for (let i = 0; i < randomCharactersIds.length; i++) {
 		url += `${randomCharactersIds[i]},`;
 	}
-
 	return url;
 };
 

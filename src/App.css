@@ -92,7 +92,6 @@ footer {
 	nav {
 		flex-direction: column;
 		padding: 1rem;
-		height: 15vh;
 	}
 	main {
 		height: auto;
