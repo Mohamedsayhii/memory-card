@@ -20,7 +20,7 @@ const getRandomCharacters = (url) => {
 		uniqueRandomIds.add(Math.floor(Math.random() * 826) + 1);
 	}
 
-	const randomCharactersIds = Array.from(uniqueRandomIds); 
+	const randomCharactersIds = Array.from(uniqueRandomIds);
 	for (let i = 0; i < randomCharactersIds.length; i++) {
 		url += `${randomCharactersIds[i]},`;
 	}
@@ -36,16 +36,16 @@ function App() {
 	function incrementScore(cardId) {
 		if (!selectedCardsIds.includes(cardId)) {
 			setSelectedCardsIds((prevCardsIds) => [...prevCardsIds, cardId]);
-			setScore((prevScore) => prevScore + 1);
+			setScore((prevScore) => {
+				const newScore = prevScore + 1;
+				if (newScore > highestScore) {
+					setHighestScore(newScore);
+				}
+				return newScore;
+			});
 		} else {
 			setSelectedCardsIds([]);
 			setScore(0);
-		}
-	}
-
-	function highScore() {
-		if (score >= highestScore) {
-			setHighestScore(score);
 		}
 	}
 
@@ -58,8 +58,6 @@ function App() {
 		data.then((response) => {
 			if (!ignore) setCards(response);
 		});
-
-		highScore();
 
 		return () => {
 			ignore = true;
